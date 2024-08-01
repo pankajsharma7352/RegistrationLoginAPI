@@ -1,4 +1,5 @@
 ﻿using StudentRegAndLogin.models.Models;
+using StudentRegAndLogin.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace StudentRegAndLogin.Services.StudentServices
     public interface IStudentServices
     {
         
-        Task<Student> RegisterStudentAsync(Student student);
+        Task<Student> RegisterStudentAsync(StudentDTO student);
         Task<Student> LoginStudentAsync(string email, string password);
     }
 }

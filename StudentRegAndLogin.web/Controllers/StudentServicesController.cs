@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StudentRegAndLogin.models.Models;
+using StudentRegAndLogin.Models.Models;
 using StudentRegAndLogin.services.StudentServices;
 using StudentRegAndLogin.Services.StudentServices;
 
 namespace StudentRegAndLogin.Web.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class StudentServicesController : ControllerBase
@@ -18,12 +21,12 @@ namespace StudentRegAndLogin.Web.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<Student> RegisterStudent(Student student)
+        public async Task<Student> RegisterStudent(StudentDTO student)
         {
-                return await _studentServices.RegisterStudentAsync(student);
-            
+                return await _studentServices.RegisterStudentAsync(student);     
         }
 
+        [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult<Student>> LoginStudent(string email, string password)
         {

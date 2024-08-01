@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentRegAndLogin.models.Models
+namespace StudentRegAndLogin.Models.Models
 {
-    public class Student
+    public class StudentDTO
     {
         public int Id { get; set; }
 
@@ -23,17 +23,9 @@ namespace StudentRegAndLogin.models.Models
 
         [Required]
         public string Password { get; set; }
-       
+        [Required]
+        public string ConfirmPassword { get; set; }
         [Required]
         public string Address { get; set; }
-    }
-
-    public class ServiceResponse 
-    {
-        public bool IsSuccess  { get; set; }
-
-        public string Message { get; set; }
-        public object Data { get; set; }
-        public int StatusCode { get; set; }
     }
 }
